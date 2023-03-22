@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('campaign_items', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('sent_to_day')->nullable();
