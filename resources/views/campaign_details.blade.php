@@ -68,10 +68,6 @@
 
 </div>
 
-
-
-
-
 <script>
     tinymce.init({
       selector: 'input.tinymce-editor',
