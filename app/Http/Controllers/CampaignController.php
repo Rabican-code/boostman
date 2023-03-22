@@ -13,6 +13,6 @@ class CampaignController extends Controller
         $data->name= $request['name'];
 
         $data->save();
-        return redirect('/campaign_items/{id}');
+        return redirect('/campaigns');
     }
 }
