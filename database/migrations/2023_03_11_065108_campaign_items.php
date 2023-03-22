@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('campaign_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('label');
+            $table->text('name');
             $table->text('content');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->timestamp('sent_to_day')->nullable();
         });
     }
