@@ -17,25 +17,18 @@
   @vite('resources/css/app.css')
 </head>
 <body>
-<div class="container mx-auto">
+<div class="flex justify-center h-screen w-screen bg-slate-300">
 
-    <div class=" w-[1500rem] p-5 mx-auto my-10 bg-white rounded-md shadow-sm">
-
-
-      <div class="">
-        <ul class="border  border-gray-200 rounded overflow-hidden shadow-md">
-
-
-        <a href="campaigns">   <li class="px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">Campaigns</li></a>
-        <a href="contacts">   <li class="px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">Contacts</li><a>
+    <div class=" w-[30rem]  h-auto p-5 mx-10 my-10  rounded-md shadow-sm ">
+        <ul class="">
+          <a href="campaigns" class="">   <li class="px-4 py-2 my-5 bg-white hover:bg-sky-100 hover:text-sky-900 border  border-gray-200 shadow-sm transition-all duration-300 ease-in-out text-lg font-semibold rounded-md">Campaigns</li></a>
+          <a href="contacts" class="">   <li class="px-4 py-2 my-5 bg-white hover:bg-sky-100 hover:text-sky-900 border  border-gray-200 shadow-sm  transition-all duration-300 ease-in-out text-lg font-semibold rounded-md">Contacts</li><a>
 
         </ul>
     </div>
-    </div>
-
-
 
   </div>
+
 </body>
 </html>
 

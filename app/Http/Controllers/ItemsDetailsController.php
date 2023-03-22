@@ -7,7 +7,7 @@ use App\Models\campaign_detail;
 use App\Models\Campaign_item;
 class ItemsDetailsController extends Controller
 {
-    public function store (Request $request)
+    public function store (Request $request,$id)
     {
         $user= new campaign_detail();
         $user->label= $request['label'];

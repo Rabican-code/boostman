@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Campaign_item;
 class AddItemController extends Controller
 {
-    public function store (Request $request,)
+    public function store (Request $request,$id)
     {
 
         $data= new Campaign_item();
         $data->name= $request['name'];
-
+        $data->name= $request['content'];
         $data->save();
-        return redirect('/campaign_items/{id}');
+        return redirect('/item/{id}');
     }
     public function show (Request $request,$id)
     {
@@ -26,6 +26,6 @@ class AddItemController extends Controller
         $data->name= $request['name'];
 
         $data->update();
-        return redirect('/campaign_items');
+        return redirect('campaign_items/{id}');
     }
 }
