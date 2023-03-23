@@ -11,9 +11,9 @@ class AddItemController extends Controller
 
         $data= new Campaign_item();
         $data->name= $request['name'];
-        $data->name= $request['content'];
+        $data->content= $request['content'];
         $data->save();
-        return redirect('/item/{id}');
+        return redirect('/campaign_items/{id}');
     }
     public function show (Request $request,$id)
     {
