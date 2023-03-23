@@ -21,9 +21,9 @@
         </head>
 
         <body>
-            <div class="flex-row border w-[13rem] h-[81vh] border-black">
+            <div class="flex-row w-[13rem] h-[81vh] ">
 
-                <div class="w-[12rem] h-[25rem] p-5 my-2 bg-white rounde  d-md shadow-sm">
+                <div class="w-[12rem] h-[85%] p-5 my-2 bg-white rounde  d-md shadow-sm">
                     <div class="">
                         <ul class="">
                             @if ($items)
@@ -85,10 +85,6 @@
 `);
                     });
 
-                    // $(document).on('click', '.btn_remove', function(){
-                    //      var button_id = $(this).attr("id");
-                    //      $('#row'+button_id+'').remove();
-                    // });
 
                 });
             </script>
