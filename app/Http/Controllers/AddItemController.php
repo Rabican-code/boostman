@@ -26,6 +26,7 @@ class AddItemController extends Controller
             $data['selected_item'] = Campaign_item::find($ci_id);
         }else{
             $data['selected_item'] = $items[0];
+            // dd($items);
         }
 
 
