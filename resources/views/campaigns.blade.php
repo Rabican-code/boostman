@@ -59,7 +59,7 @@
                                                     </div>
                                                 </div>
                                                 <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
-                                                    src="https://ui-avatars.com/api/?name={{ $item->name }}/?background=random"
+                                                    src="https://ui-avatars.com/api/?name={{ $item->name }}/&background=random"
                                                     alt="">
                                             </div>
                                             <div>
