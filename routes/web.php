@@ -52,7 +52,7 @@ Route::post('/contacts', [App\Http\Controllers\ContactsController::class, 'store
 Route::put('/campaignupdate/{id}', [App\Http\Controllers\AddItemController::class, 'update']);
 
 Route::get('/campaigns', function () {
-    $items = DB::table('campaigns')->select('id', 'name')->get();
+    $items = DB::table('campaigns')->select('id', 'name', 'created_at', 'updated_at')->get();
     return view('campaigns', compact('items'));
 });
 Route::post('/addcampaign', [App\Http\Controllers\CampaignController::class, 'store']);
