@@ -56,3 +56,5 @@ Route::get('/campaigns', function () {
     return view('campaigns', compact('items'));
 });
 Route::post('/addcampaign', [App\Http\Controllers\CampaignController::class, 'store']);
+
+Route::view('/side', 'sidebar');
