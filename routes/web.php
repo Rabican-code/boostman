@@ -33,18 +33,16 @@ Route::get('/', function () {
 
 });
 
-Route::get('/item/{id}', [App\Http\Controllers\AddItemController::class, 'store']);
+Route::get('campaignfetch', [App\Http\Controllers\AddItemController::class, 'fetch']);
+Route::post('/additem/{id}', [App\Http\Controllers\AddItemController::class, 'store']);
 
-Route::post('/additem', [App\Http\Controllers\AddItemController::class, 'store']);
+Route::get('/campaign_items/{id}/{ci_id?}',  [App\Http\Controllers\AddItemController::class, 'show']);
 
-Route::get('/campaign_items/{id}', function () {
-    $items = DB::table('campaign_items')->select('id', 'name')->get();
-    return view('campaign_items', compact('items'));
-});
 Route::get('/item/{id}', [App\Http\Controllers\ItemsDetailsController::class, 'show']);
 
-Route::post('/additemdetails', [App\Http\Controllers\ItemsDetailsController::class, 'store']);
+// Route::post('/additemdetails', [App\Http\Controllers\ItemsDetailsController::class, 'store']);
 
+// Route::get('/item/{id}', [App\Http\Controllers\AddItemController::class, 'store']);
 Route::get('/contacts', function () {
     $items = DB::table('emails')->select('id', 'email')->get();
     return view('contacts', compact('items'));

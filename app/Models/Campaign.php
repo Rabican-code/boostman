@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Campaign extends Model
 {
     use HasFactory;
+public function campaignItems()
+{
+    return $this->hasMany('App\Models\Campaign_item','campaign_id','id');
+}
 }
