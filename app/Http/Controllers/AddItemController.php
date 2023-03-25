@@ -37,7 +37,7 @@ class AddItemController extends Controller
         $data = Campaign_item::Find($id);
         $data->content= $request['content'];
         $data->update();
-        return view('campaign_items');
+        return redirect()->back();
     }
     public function fetch()
     {
