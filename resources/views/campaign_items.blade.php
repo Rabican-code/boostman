@@ -22,7 +22,6 @@
 
         <body>
             <div class="flex-row w-[13rem] h-[81vh] ">
-
                 <div class="w-[12rem] h-[85%] p-5 my-2 bg-white rounde  d-md shadow-sm">
                     <div class="">
                         <ul class="">
