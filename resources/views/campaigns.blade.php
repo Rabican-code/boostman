@@ -18,13 +18,12 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             @vite('resources/css/app.css')
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         </head>
 
         <body>
             <div class="bg-gray-100">
-
                 <div class="flex justify-center">
-
                     <div class="bg-gray-100 w-[29rem]">
                         <div class="px-4 py-5 sm:p-6">
                             <h3 class="text-base font-semibold leading-6 text-gray-900">Create new campaign</h3>
@@ -45,6 +44,7 @@
                 </div>
                 <div class=" shadow-sm rounded-md flex justify-center bg-gray-100">
                     <div class="">
+
                         <ul role="list" class="grid grid-cols-3 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                             @if ($items)
                                 @foreach ($items as $item)
@@ -56,11 +56,10 @@
                                                         <h3 class="truncate text-md font-medium text-gray-900">Campaign
                                                             Name: {{ $item->name }}</h3>
                                                     </div>
+
                                                 </div>
-                                                <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
-                                                    src="https://ui-avatars.com/api/?name={{ $item->name }}/&background=random"
-                                                    alt="">
                                             </div>
+
                                             <div>
                                                 <div class="-mt-px flex divide-x divide-gray-200">
                                                     <div class="flex w-0 flex-1">
@@ -78,6 +77,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                     </li>
                                 @endforeach
                             @else
@@ -88,6 +89,17 @@
                 </div>
 
             </div>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#hide").click(function() {
+                        $("#edit").css("display", "none");
+                    });
+
+                    $("#show").click(function() {
+                        $("#edit").css("display", "block");
+                    });
+                });
+            </script>
         </body>
 
         </html>

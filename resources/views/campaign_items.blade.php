@@ -55,12 +55,17 @@
 
 
                 <div class="">
+
                     <div class="flex w-full ">
                         <div id="email_form" class="w-full">
-                            <form action="/campaignupdate/{{ $selected_item->id }}" method="POST">
+                            <form action="/campaignupdate/{{ $selected_item['id'] }}" method="POST">
                                 @csrf
                                 @method('put')
-                                <input type="text" value=" {{ $selected_item->content }}"
+                                <label for="name">Email name:</label>
+                                <input
+                                    class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    name="name" value="{{ $selected_item['name'] }}" />
+                                <input type="text" value="{{ $selected_item['content'] }}"
                                     class="tinymce-editor  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     id="tinymce-editor" name="content" />
                                 <label for="content"
@@ -75,11 +80,14 @@
                                         class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[9] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200">
                                     </label>
 
-                                        <button type="submit"
+                                    <button type="submit"
                                         class="mx-5 text-end px-4 h-max py-4 text-white bg-indigo-500 rounded-md  focus:bg-indigo-600 focus:outline-none">
                                         Create Email
                                     </button>
-
+                                    <a href="/delete/{{ $selected_item['id'] }}" type="submit"
+                                        class="mx-5 text-end px-4 h-max py-4 text-white bg-red-500 rounded-md  focus:bg-indigo-600 focus:outline-none">
+                                        Delete
+                                    </a>
                                 </div>
                         </div>
                     </div>

@@ -13,5 +13,10 @@ class ContactsController extends Controller
         $data->save();
         return redirect('/contacts');
     }
+    public function show ()
+    {
+        $items = email::all();
+        return view('contacts', compact('items'));
+    }
 
 }
