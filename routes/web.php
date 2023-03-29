@@ -25,36 +25,23 @@ Route::middleware([
     })->name('dashboard');
 });
 
-
+Route::view('/side', 'sidebar');
 
 Route::get('/', function () {
 
     return view('dashboard');
-
 });
 
 Route::get('campaignfetch', [App\Http\Controllers\AddItemController::class, 'fetch']);
 Route::post('/additem/{id}', [App\Http\Controllers\AddItemController::class, 'store']);
-
-Route::get('/campaign_items/{id}/{ci_id?}',  [App\Http\Controllers\AddItemController::class, 'show']);
-
+Route::get('/campaign_items/{id}/{ci_id?}', [App\Http\Controllers\AddItemController::class, 'show']);
 Route::get('/item/{id}', [App\Http\Controllers\ItemsDetailsController::class, 'show']);
-
-// Route::post('/additemdetails', [App\Http\Controllers\ItemsDetailsController::class, 'store']);
-
-// Route::get('/item/{id}', [App\Http\Controllers\AddItemController::class, 'store']);
-Route::get('/contacts', function () {
-    $items = DB::table('emails')->select('id', 'email')->get();
-    return view('contacts', compact('items'));
-});
+Route::get('/contacts', [App\Http\Controllers\ContactsController::class, 'show']);
 Route::post('/contacts', [App\Http\Controllers\ContactsController::class, 'store']);
-
 Route::put('/campaignupdate/{id}', [App\Http\Controllers\AddItemController::class, 'update']);
-
-Route::get('/campaigns', function () {
-    $items = DB::table('campaigns')->select('id', 'name', 'created_at', 'updated_at')->get();
-    return view('campaigns', compact('items'));
-});
+Route::get('/delete/{id}', [App\Http\Controllers\AddItemController::class, 'delete']);
+Route::get('/campaigns', [App\Http\Controllers\CampaignController::class, 'show']);
 Route::post('/addcampaign', [App\Http\Controllers\CampaignController::class, 'store']);
-
-Route::view('/side', 'sidebar');
+Route::get('/campaign/edit/{id}', [App\Http\Controllers\CampaignController::class, 'edit']);
+Route::get('/campaign/delete/{id}', [App\Http\Controllers\CampaignController::class, 'delete']);
+Route::put('/campaign/update/{id}', [App\Http\Controllers\CampaignController::class, 'update']);
