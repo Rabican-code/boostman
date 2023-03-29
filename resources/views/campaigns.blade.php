@@ -45,17 +45,16 @@
                 </div>
                 <div class=" shadow-sm rounded-md flex justify-center bg-gray-100">
                     <div class="">
-                        <ul class="bg-gray-100 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <ul role="list" class="grid grid-cols-3 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                             @if ($items)
                                 @foreach ($items as $item)
-                                    <a href="/campaign_items/{{ $item->id }}">
-                                        <li
-                                            class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow hover:bg-neutral-200">
+                                    <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
+                                        <a href="/campaign_items/{{ $item->id }}">
                                             <div class="flex w-full items-center justify-between space-x-6 p-6">
                                                 <div class="flex-1 truncate">
                                                     <div class="flex items-center space-x-3">
-                                                        <h3 class="truncate text-lg  font-semibold text-gray-900">
-                                                            Campaign Name: {{ $item->name }}</h3>
+                                                        <h3 class="truncate text-md font-medium text-gray-900">Campaign
+                                                            Name: {{ $item->name }}</h3>
                                                     </div>
                                                 </div>
                                                 <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
@@ -65,16 +64,21 @@
                                             <div>
                                                 <div class="-mt-px flex divide-x divide-gray-200">
                                                     <div class="flex w-0 flex-1">
-                                                        <p class="text-xs px-2"> Created_at: <br>{{ $item->created_at }}
-                                                        </p>
+                                                        <a href="mailto:janecooper@example.com"
+                                                            class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
+                                                            Edit
+                                                        </a>
                                                     </div>
                                                     <div class="-ml-px flex w-0 flex-1">
-                                                        <p class="text-xs px-2"> Updated_at: <br>{{ $item->updated_at }}
-                                                        </p>
+                                                        <a href="tel:+1-202-555-0170"
+                                                            class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
+                                                            
+                                                            Delete
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
+                                    </li>
                                 @endforeach
                             @else
                                 <li> Not working</li>
