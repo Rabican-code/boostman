@@ -18,14 +18,13 @@ class CampaignController extends Controller
     }
     public function show()
     {
-
         $items = Campaign::all();
         return view('campaigns', compact('items'));
     }
 
     public function edit($id)
     { $items = Campaign::find($id);
-        dd($items);
+
        return view('campaign_edit', compact('items'));
     }
     public function update(Request $request, $id)
@@ -37,7 +36,6 @@ class CampaignController extends Controller
     }
     public function delete($id)
     {
-
         $items = Campaign::find($id);
         $items->delete();
         return redirect()->back();

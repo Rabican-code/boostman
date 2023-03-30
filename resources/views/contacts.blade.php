@@ -42,8 +42,25 @@
                     <ul role="list" class="divide-y divide-gray-200 w-full flex flex-col items-center">
 
                         @if ($items)
-                            @foreach ($items as $data)
-                                <li class="px-6 py-4 m-2 w-[30rem] rounded-md bg-white"> {{ $data->email }}</li>
+                            @foreach ($items as $item)
+                                <li class="px-4 py-4  w-[30rem] rounded-md bg-white"> {{ $item->email }}
+                                    <div class="-mt-px flex divide-x divide-gray-200">
+                                        <div class="flex w-0 flex-1">
+                                            <a id="show" href="/contact/edit/{{ $item->id }}"
+                                                class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
+                                                Edit
+                                            </a>
+                                        </div>
+                                        <div class="-ml-px flex w-0 flex-1">
+                                            <a href="/contact/delete/{{ $item->id }}"
+                                                class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
+
+                                                Delete
+                                            </a>
+                                        </div>
+                                    </div></li>
+
+
                             @endforeach
                         @else
                             <li> Not working</li>

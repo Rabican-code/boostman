@@ -45,3 +45,6 @@ Route::post('/addcampaign', [App\Http\Controllers\CampaignController::class, 'st
 Route::get('/campaign/edit/{id}', [App\Http\Controllers\CampaignController::class, 'edit']);
 Route::get('/campaign/delete/{id}', [App\Http\Controllers\CampaignController::class, 'delete']);
 Route::put('/campaign/update/{id}', [App\Http\Controllers\CampaignController::class, 'update']);
+Route::get('/contact/edit/{id}', [App\Http\Controllers\ContactsController::class, 'edit']);
+Route::get('/contact/delete/{id}', [App\Http\Controllers\ContactsController::class, 'delete']);
+Route::put('/contact/update/{id}', [App\Http\Controllers\ContactsController::class, 'update']);
