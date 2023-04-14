@@ -4,28 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Campaign;
+use App\Models\Campaign_item;
 
 class CampaignController extends Controller
 {
     public function store(Request $request,)
     {
-
         $data = new Campaign();
         $data->name = $request['name'];
-
         $data->save();
         return redirect('/campaigns');
     }
     public function show()
     {
-        $items = Campaign::all();
+        // $count = Campaign::withCount('campaignitems')->get();
+
+        $items = Campaign::withCount('campaignitems')->get();
+
         return view('campaigns', compact('items'));
     }
-
     public function edit($id)
-    { $items = Campaign::find($id);
-
-       return view('campaign_edit', compact('items'));
+    {
+        $items = Campaign::find($id);
+        return view('campaign_edit', compact('items'));
     }
     public function update(Request $request, $id)
     {

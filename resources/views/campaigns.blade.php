@@ -20,6 +20,7 @@
         </head>
 
         <body>
+
             <div class="bg-gray-100">
                 <div class="flex justify-center">
                     <div class="bg-gray-100 w-[29rem]">
@@ -31,7 +32,7 @@
                                     <label for="email" class="sr-only">Email</label>
                                     <input type="text" name="name" placeholder="Enter Your Campaign Name" required
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                        placeholder="you@example.com">
+                                        placeholder="you@example.com" required/>
                                 </div>
                                 <button type="submit"
                                     class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:mt-0 sm:ml-3 sm:w-auto">Create</button>
@@ -46,13 +47,14 @@
                         <ul role="list" class="grid grid-cols-3 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                             @if ($items)
                                 @foreach ($items as $item)
+
                                     <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
                                         <a href="/campaign_items/{{ $item->id }}">
                                             <div class="flex w-full items-center justify-between space-x-6 p-6">
                                                 <div class="flex-1 truncate">
                                                     <div class="flex items-center space-x-3">
                                                         <h3 class="truncate text-md font-medium text-gray-900">Campaign
-                                                            Name: {{ $item->name }}</h3>
+                                                            Name: {{ $item->name }} <br/> Emails: {{ $item->campaignitems_count}}</h3>
                                                     </div>
                                                 </div>
                                             </div>

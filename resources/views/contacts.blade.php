@@ -25,12 +25,12 @@
 
                 <div class="bg-gray-100 w-[29rem]">
                     <div class="px-4 py-5 sm:p-6">
-                        <h3 class="text-base font-semibold leading-6 text-gray-900">Add Email</h3>
+                        <h3 class="text-base font-semibold leading-6 text-gray-900">Add Contact:</h3>
                         <form class="mt-5 sm:flex sm:items-center" action="/contacts" method="POST">
                             @csrf
                             <div class="w-full sm:max-w-xs">
                                 <label for="email" class="sr-only">Email</label>
-                                <input type="email" name="email" placeholder="you@example.com" required
+                                <input type="email" name="Contact" placeholder="you@example.com" required
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                             <button type="submit"
@@ -43,23 +43,28 @@
 
                         @if ($items)
                             @foreach ($items as $item)
-                                <li class="px-4 py-4  w-[30rem] rounded-md bg-white"> {{ $item->email }}
+                                <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
+                                    <div class="flex w-[20rem] items-center justify-between space-x-6 p-4">
+                                        <div class="flex-1 truncate">
+                                            <div class="flex items-center space-x-3">
+                                                <h3 class="truncate text-md font-medium text-gray-900">{{ $item->contact }}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="-mt-px flex divide-x divide-gray-200">
                                         <div class="flex w-0 flex-1">
                                             <a id="show" href="/contact/edit/{{ $item->id }}"
-                                                class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
+                                                class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-2 text-sm font-semibold text-gray-900">
                                                 Edit
                                             </a>
                                         </div>
                                         <div class="-ml-px flex w-0 flex-1">
                                             <a href="/contact/delete/{{ $item->id }}"
-                                                class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
-
+                                                class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-2 text-sm font-semibold text-gray-900">
                                                 Delete
                                             </a>
                                         </div>
                                     </div></li>
-
 
                             @endforeach
                         @else
