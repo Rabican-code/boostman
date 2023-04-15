@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaign_email', function (Blueprint $table) {
+        Schema::create('campaign_contact', function (Blueprint $table) {
 
             $table->increments('id');
             $table->unsignedBiginteger('campaign_id')->unsigned();
