@@ -26,10 +26,10 @@
                     <div class="bg-gray-100 w-[29rem]">
                         <div class="px-4 py-5 sm:p-6">
                             <h3 class="text-base font-semibold leading-6 text-gray-900">Create new campaign</h3>
-                            <form class="mt-5 sm:flex sm:items-center" action="/addcampaign" method="POST">
+                            <form class="mt-5 sm:flex sm:items-center" action="/addcampaign/{{Auth::id()}}" method="POST">
                                 @csrf
                                 <div class="w-full sm:max-w-xs">
-                                    <label for="email" class="sr-only">Email</label>
+                                    <label for="name" class="sr-only">Name</label>
                                     <input type="text" name="name" placeholder="Enter Your Campaign Name" required
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         placeholder="you@example.com" required/>
@@ -45,7 +45,7 @@
                     <div class="">
 
                         <ul role="list" class="grid grid-cols-3 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                            @if ($items)
+
                                 @foreach ($items as $item)
 
                                     <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
@@ -77,15 +77,15 @@
                                                 </div>
                                             </div>
                                     </li>
+
                                 @endforeach
-                            @else
-                                <li> Not working</li>
-                            @endif
+
+
                         </ul>
                     </div>
                 </div>
                 <div style="display:none" id="edit">
-                    <form class="mt-5 sm:flex sm:items-center" action="/campaign/update/{{ $item->id }}"
+                    <form class="mt-5 sm:flex sm:items-center" action=""
                         method="POST">
                         @csrf
                         @method('put')

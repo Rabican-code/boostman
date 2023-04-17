@@ -8,23 +8,33 @@ use App\Models\Campaign_item;
 
 class CampaignController extends Controller
 {
-    public function store(Request $request,)
+    public function store(Request $request,$id)
     {
+        // dd("addcampaign");
         $data = new Campaign();
-        $data->name = $request['name'];
+        $data->name = request('name');
+        $data->user_id = $id;
         $data->save();
-        return redirect('/campaigns');
+        return redirect()->back();
     }
     public function show()
     {
         // $count = Campaign::withCount('campaignitems')->get();
+        // $campaigns = Campaign::all();
 
-        $items = Campaign::withCount('campaignitems')->get();
+        // if(count($campaigns) > 0){
+        //     $data = new Campaign();
+        //     $data->name = request("name") ?: 'Demo Campaign';
+        //     $data->save();
+        //    }
 
+        $items = Campaign::where("user_id", auth()->user()->id)->withCount('campaignitems')->get();
+        //    dd($items);
         return view('campaigns', compact('items'));
     }
     public function edit($id)
     {
+
         $items = Campaign::find($id);
         return view('campaign_edit', compact('items'));
     }

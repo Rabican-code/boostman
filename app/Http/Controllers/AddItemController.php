@@ -40,7 +40,7 @@ class AddItemController extends Controller
                 $data->campaign_id = $id;
                 $data->save();
                 $items[] = $data;
-                return redirect()->back();
+
             }
 
             $data['selected_item'] = $items[0];
@@ -60,7 +60,7 @@ class AddItemController extends Controller
 
         foreach($contacts_id as $cid){
             $contact = Contact::find($cid);
-            $data->emails()->attach($contact);
+            $data->contacts()->attach($contact);
         }
 
         $data->save();

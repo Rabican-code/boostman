@@ -21,16 +21,16 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
 });
 
 Route::view('/side', 'sidebar');
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
 
-    return view('dashboard');
+     return view('dashboard');
 });
 
 Route::get('campaignfetch', [App\Http\Controllers\AddItemController::class, 'fetch']);
@@ -42,7 +42,7 @@ Route::post('/contacts', [App\Http\Controllers\ContactsController::class, 'store
 Route::put('/campaignitem/update/{cp_id}', [App\Http\Controllers\AddItemController::class, 'update']);
 Route::get('/delete/{id}', [App\Http\Controllers\AddItemController::class, 'delete']);
 Route::get('/campaigns', [App\Http\Controllers\CampaignController::class, 'show']);
-Route::post('/addcampaign', [App\Http\Controllers\CampaignController::class, 'store']);
+Route::post('/addcampaign/{id}', [App\Http\Controllers\CampaignController::class, 'store']);
 Route::get('/campaign/edit/{id}', [App\Http\Controllers\CampaignController::class, 'edit']);
 Route::get('/campaign/delete/{id}', [App\Http\Controllers\CampaignController::class, 'delete']);
 Route::put('/campaign/update/{id}', [App\Http\Controllers\CampaignController::class, 'update']);
