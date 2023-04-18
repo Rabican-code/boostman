@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('submited_contacts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('contact_id');
-            $table->text('contact');
+            $table->text('contact')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamp('updated_at')->nullable();

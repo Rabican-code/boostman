@@ -49,26 +49,25 @@ class AddItemController extends Controller
     }
     public function update(Request $request, $cp_id)
     {
- if(!$request['contact']==null){
+
 
     $data = Campaign_item::Find($cp_id);
     $data->name = $request['name'];
     $data->content = $request['content'];
     $data->sent_to_day = $request['date'];
     $data->update();
+
+    if(!$request['contact']==null){
     $contacts_id = $request['contact'];
-
-
     foreach($contacts_id as $cid){
         $contact = Contact::find($cid);
         $data->contacts()->attach($contact);
     }
 
     $data->save();
-    return redirect()->back();
- } else {
-    return redirect()->back()->with('error', 'Please select contacts');;
+
  }
+ return redirect()->back();
     //     $data->emails()->attach($mails);
     //     $mail_data = [
     //     'contact' => $request['contact'],

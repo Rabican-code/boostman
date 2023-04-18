@@ -56,7 +56,7 @@
                        ($ml-[400px] flex sm:w-16 md:w-[600px] contact['id']); --}}
         <div class="flex justify-center">
             <form action="/campaignitem/update/{{ $selected_item['id'] }}" method="POST" novalidate
-                class=" ml-[500px] flex  col-start-3 col-end-12">
+                class=" ml-[150px]  col-start-3 col-end-12">
 
                 {{-- @endfor --}}
                 <div class=" sm:[w-160px] md:w-[600px] lg:w-[900pxpx] xl:w-[1000px] justify-center pt-20">
