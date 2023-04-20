@@ -11,12 +11,14 @@
             referrerpolicy="origin"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src=></script>
+        <script src="multiselect-dropdown.js" ></script>
         <link rel="stylesheet"w
             href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
         <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         @vite('resources/css/app.css')
+
     </head>
 
     <body>
@@ -59,7 +61,7 @@
                 class=" ml-[150px]  col-start-3 col-end-12">
 
                 {{-- @endfor --}}
-                <div class=" sm:[w-160px] md:w-[600px] lg:w-[900pxpx] xl:w-[1000px] justify-center pt-20">
+                <div class=" sm:[w-160px] md:w-[600px] lg:w-[900px] xl:w-[1000px] justify-center pt-20">
                     <div id="email_form">
                         @if (\Session::has('error'))
                             <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
@@ -84,20 +86,10 @@
 
                         <div class="my-5 relative mb-6 grid md:grid-cols-2 grid-cols-1" data-te-input-wrapper-init>
                             <div class="flex items-center">
-                                <div>
-                                    {{-- <h2 class="w-60">Choose Contacts:</h2> --}}
-                                    <select value="Choose contacts" name="contact[]" id="select" multiple
-                                        multiselect-search="true"
-                                        class=" w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                                        required>
-                                        @foreach ($contacts as $contact)
-                                            <h4> {{ $contact->id }}</h4>
-                                            <option value="{{ $contact->id }}"
-                                                class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-                                                {{ $contact->contact }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+
+                                <a href="/campaign_item/contacts/{{ $selected_item['id'] }}" class="w-[12rem] relative block w-auto px-6 py-3 overflow-hidden text-base font-semibold text-center text-gray-800 rounded-lg bg-gray-50 hover:text-black hover:bg-white">
+                                    Contacts
+                                </a>
                                 <input type="date" name="date"
                                     class=" w-[12rem] px-2 mx-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     id="time" required />
@@ -105,6 +97,8 @@
                                     class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[9] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200">
                                 </label>
                             </div>
+
+
                             <div class="flex justify-end">
                                 <button type="submit"
                                     class="mx-3 text-center w-[100px]  px-6 h-max py-3 text-xl text-white bg-indigo-500 rounded-md  focus:bg-indigo-600 focus:outline-none">
@@ -122,8 +116,12 @@
                 </div>
                 <div class="w-[232px]">
                 </div>
+
             </form>
+
         </div>
+
+        <script src="jquery.multiple.select.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -171,9 +169,7 @@
                 toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
             });
         </script>
-        <script>
-            new MultiSelectTag('select') // id
-        </script>
+
 
     </body>
 

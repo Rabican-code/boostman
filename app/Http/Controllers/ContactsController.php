@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\Campaign_item;
 class ContactsController extends Controller
 {
     public function store (Request $request)
@@ -13,10 +14,11 @@ class ContactsController extends Controller
         $data->save();
         return redirect('/contacts');
     }
-    public function show ()
+    public function show (Request $request,$id)
     {
+        $cp_id=$id;
         $items = Contact::all();
-        return view('contacts', compact('items'));
+        return view('campaign_item_contacts', compact('items','cp_id'));
     }
 
     public function edit($id)
@@ -36,5 +38,23 @@ class ContactsController extends Controller
         $items = Contact::find($id);
         $items->delete();
         return redirect()->back();
+    }
+    public function savedcontacts(Request $request, $cp_id){
+
+        $data = Campaign_item::Find($cp_id);
+        if(!$request['contact']==null){
+
+            $contacts_id = $request['contact'];
+            foreach($contacts_id as $cid){
+                $contact = Contact::find($cid);
+                $data->contacts()->attach($contact);
+
+            }
+
+            $data->save();
+
+
+         }
+         return redirect()->back();
     }
 }

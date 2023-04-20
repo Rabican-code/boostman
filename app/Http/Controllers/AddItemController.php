@@ -91,4 +91,5 @@ class AddItemController extends Controller
         $items->delete();
         return redirect()->back();
     }
+
 }

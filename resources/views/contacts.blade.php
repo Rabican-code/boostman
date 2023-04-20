@@ -26,11 +26,11 @@
                 <div class="bg-gray-100 w-[29rem]">
                     <div class="px-4 py-5 sm:p-6">
                         <h3 class="text-base font-semibold leading-6 text-gray-900">Add Contact:</h3>
-                        <form class="mt-5 sm:flex sm:items-center" action="/contacts" method="POST">
+                        <form class="mt-5 sm:flex sm:items-center" action="/addcontact" method="POST">
                             @csrf
                             <div class="w-full sm:max-w-xs">
                                 <label for="email" class="sr-only">Email</label>
-                                <input type="email" name="Contact" placeholder="you@example.com" required
+                                <input type="email" name="contact" placeholder="you@example.com" required
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                             <button type="submit"

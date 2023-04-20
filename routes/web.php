@@ -35,10 +35,12 @@ Route::get('/dashboard', function () {
 
 Route::get('campaignfetch', [App\Http\Controllers\AddItemController::class, 'fetch']);
 Route::post('/additem/{id}', [App\Http\Controllers\AddItemController::class, 'store']);
+Route::post('/savedcontacts/{id}', [App\Http\Controllers\ContactsController::class, 'savedcontacts']);
 Route::get('/campaign_items/{id}/{ci_id?}', [App\Http\Controllers\AddItemController::class, 'show']);
 Route::get('/item/{id}', [App\Http\Controllers\ItemsDetailsController::class, 'show']);
 Route::get('/contacts', [App\Http\Controllers\ContactsController::class, 'show']);
-Route::post('/contacts', [App\Http\Controllers\ContactsController::class, 'store']);
+Route::get('/campaign_item/contacts/{id}', [App\Http\Controllers\ContactsController::class, 'show']);
+Route::post('/addcontact', [App\Http\Controllers\ContactsController::class, 'store']);
 Route::put('/campaignitem/update/{cp_id}', [App\Http\Controllers\AddItemController::class, 'update']);
 Route::get('/delete/{id}', [App\Http\Controllers\AddItemController::class, 'delete']);
 Route::get('/campaigns', [App\Http\Controllers\CampaignController::class, 'show']);
