@@ -57,11 +57,12 @@
         </form>
 
         @foreach ($campaign->contacts as $con)
-            <div class="my-2 col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
+        <div class="flex justify-center">
+            <div class=" my-2 col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
                 <div class="flex w-[20rem] items-center justify-between space-x-6 p-4">
                     <div class="flex-1 truncate">
                         <div class="flex items-center space-x-3">
-                            <h3 class="truncate text-md font-medium text-gray-900">{{ $con->contact }}</h3>
+                            <h3 class="truncate text-center font-medium text-gray-900">{{ $con->contact }}</h3>
                         </div>
                     </div>
                 </div>
@@ -74,6 +75,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         @endforeach
 
         <div class="my-5 overflow-y-auto flex flex-col items-center ">
