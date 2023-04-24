@@ -42,7 +42,34 @@
                         @endforeach
 
                     </ul>
-                    <div id="dynamic_field"></div>
+                    <div style="display:none" id="dynamic_field">
+                        <div>
+                               <form action="/additem/{{ $items[0]->campaign_id }}" method="POST">
+                                  @csrf
+                                 <div class="mb-6">
+                                   <label for="name" class="block mb-2 text-sm text-gray-600"
+                                     >Create new campaign</label
+                                   >
+                                   <input
+                                     type="text"
+                                     name="name"
+                                     id="name"
+                                     required
+                                     class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                   />
+                                 </div>
+
+                                 <div class="mb-6">
+                                   <button
+                                     type="submit"
+                                     class="w-full px-2 py-4 text-white bg-indigo-500 rounded-md  focus:bg-indigo-600 focus:outline-none"
+                                   >
+                                     Create
+                                   </button>
+                                 </div>
+                              </form>
+                             </div>
+                    </div>
                 </div>
                 <div class="absolute bottom-16">
                     <button type="button" name="add" id="add"
@@ -125,39 +152,41 @@
 
         <script type="text/javascript">
             $(document).ready(function() {
-                // var i=1;
-                $('#add').click(function() {
-                    //  i++;
-                    $('#dynamic_field').append(`
+                $("#add").click(function(){
+        $("#dynamic_field").toggle();
+    });
+//                 $('#add').click(function() {
 
-<div>
-  <form action="/additem/{{ $items[0]->campaign_id }}" method="POST">
-      @csrf
-    <div class="mb-6">
-      <label for="name" class="block mb-2 text-sm text-gray-600"
-        >Create new campaign</label
-      >
-      <input
-        type="text"
-        name="name"
-        id="name"
-        required
-        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-      />
-    </div>
+//                     $('#dynamic_field').append(`
 
-    <div class="mb-6">
-      <button
-        type="submit"
-        class="w-full px-2 py-4 text-white bg-indigo-500 rounded-md  focus:bg-indigo-600 focus:outline-none"
-      >
-        Create
-      </button>
-    </div>
-  </form>
-</div>
-`);
-                });
+// <div>
+//   <form action="/additem/{{ $items[0]->campaign_id }}" method="POST">
+//       @csrf
+//     <div class="mb-6">
+//       <label for="name" class="block mb-2 text-sm text-gray-600"
+//         >Create new campaign</label
+//       >
+//       <input
+//         type="text"
+//         name="name"
+//         id="name"
+//         required
+//         class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+//       />
+//     </div>
+
+//     <div class="mb-6">
+//       <button
+//         type="submit"
+//         class="w-full px-2 py-4 text-white bg-indigo-500 rounded-md  focus:bg-indigo-600 focus:outline-none"
+//       >
+//         Create
+//       </button>
+//     </div>
+//   </form>
+// </div>
+// `);
+//                 });
 
 
             });

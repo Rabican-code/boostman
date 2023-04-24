@@ -82,6 +82,18 @@
             <div class="my-5 flex justify-center">
 
                 <div class=""id="dynamic_field"></div>
+                <div style="display:none" id="create_contact">
+                    <form class="mt-5 sm:flex sm:items-center" action="/addcampaigncontact/{{ $cp_id }}" method="POST">
+                                        @csrf
+                                        <div class="w-full sm:max-w-xs">
+                                            <label for="email" class="sr-only">Email</label>
+                                            <input type="email" name="contact" placeholder="you@example.com" required
+                                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        </div>
+                                        <button type="submit"
+                                            class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:mt-0 sm:ml-3 sm:w-auto">Add</button>
+                                    </form>
+                </div>
 
             </div>
             <div class="my-5 flex justify-center">
@@ -96,29 +108,46 @@
         </div>
 
         <script type="text/javascript">
-            $(document).ready(function() {
-                // var i=1;
-                $('#add').click(function() {
-                    //  i++;
-                    $('#dynamic_field').append(`
 
-    <div>
-        <form class="mt-5 sm:flex sm:items-center" action="/addcampaigncontact/{{ $cp_id }}" method="POST">
-                            @csrf
-                            <div class="w-full sm:max-w-xs">
-                                <label for="email" class="sr-only">Email</label>
-                                <input type="email" name="contact" placeholder="you@example.com" required
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            </div>
-                            <button type="submit"
-                                class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:mt-0 sm:ml-3 sm:w-auto">Add</button>
-                        </form>
-    </div>
-    `);
-                });
+            $(document).ready(function() {
+                $("#add").click(function(){
+        $("#create_contact").toggle();
+    });
+
+    // Set div display to block
+    // $(".show-btn").click(function(){
+    //     $("#myDiv").css("display", "block");
+    // });
+                // var i=1;
+//                 $('#add').click(function() {
+//                     $(this).data('clicked', true);
+//                     if($("#add").data('clicked'))
+// {
+//    console.log("Form created");
+
+//    $('#dynamic_field').append(`
+
+//     <div id="create_contact">
+//         <form class="mt-5 sm:flex sm:items-center" action="/addcampaigncontact/{{ $cp_id }}" method="POST">
+//                             @csrf
+//                             <div class="w-full sm:max-w-xs">
+//                                 <label for="email" class="sr-only">Email</label>
+//                                 <input type="email" name="contact" placeholder="you@example.com" required
+//                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+//                             </div>
+//                             <button type="submit"
+//                                 class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:mt-0 sm:ml-3 sm:w-auto">Add</button>
+//                         </form>
+//     </div>
+//     `);
+
+// }
+
+//                 });
 
 
             });
+
         </script>
         <script>
             $(document).ready(function() {
