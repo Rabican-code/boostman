@@ -31,9 +31,9 @@
 
         <form class="" method="post" action="/savedcontacts/{{ $cp_id }}">
             @csrf
-            <div class="ml-[440px] w-[400px]">
-            <div class=" row d-flex justify-content-center mt-100">
-                <div class="col-md-6">
+            <div class="w-screen">
+            <div class="    flex justify-center mt-100">
+                <div class="w-[400px]">
                     <select placeholder="Choose contacts" value="Choose contacts" name="contact[]"
                         id="choices-multiple-remove-button" multiple multiselect-search="true"
                         class=" text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="my-2 flex justify-end">
+            <div class="my-2 flex justify-center">
                 <button type="submit" name="Save"
                     class="w-[8rem] px-auto py-2 text-white bg-indigo-500 rounded-md  focus:bg-indigo-600 focus:outline-none">Save</button>
             </div>
