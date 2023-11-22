@@ -45,7 +45,8 @@ class AddItemController extends Controller
 
             $data['selected_item'] = $items[0];
         }
-        return view('campaign_items')->with($data,$contacts);
+        $data['contacts'] = $contacts;
+        return view('campaign_items')->with($data);
     }
     public function update(Request $request, $cp_id)
     {

@@ -46,7 +46,11 @@ class ContactsController extends Controller
         $data['cp_id'] = $cp_id;
         $data['items'] = $items;
         $data['campaign'] = Campaign_item::findOrFail($cp_id);
+        // $data['existing_members'] = [];
 
+        // foreach($data['campaign'] as $existing_member){
+        //     dd($existing_member['id']);
+        // }
 
         return view('campaign_item_contacts')->with($data);
     }
