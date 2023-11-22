@@ -29,13 +29,10 @@
 
     <body>
 
-
-
-
-
-        <form method="post" action="/savedcontacts/{{ $cp_id }}">
+        <form class="" method="post" action="/savedcontacts/{{ $cp_id }}">
             @csrf
-            <div class="row d-flex justify-content-center mt-100">
+            <div class="ml-[440px] w-[400px]">
+            <div class=" row d-flex justify-content-center mt-100">
                 <div class="col-md-6">
                     <select placeholder="Choose contacts" value="Choose contacts" name="contact[]"
                         id="choices-multiple-remove-button" multiple multiselect-search="true"
@@ -50,10 +47,12 @@
                     </select>
                 </div>
             </div>
-            <div>
+
+            <div class="my-2 flex justify-end">
                 <button type="submit" name="Save"
                     class="w-[8rem] px-auto py-2 text-white bg-indigo-500 rounded-md  focus:bg-indigo-600 focus:outline-none">Save</button>
             </div>
+        </div>
         </form>
 
         @foreach ($campaign->contacts as $con)
